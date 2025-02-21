@@ -12,5 +12,8 @@ public interface IStudentController {
 
     public Student getStudentById(Integer id);
 
+    public void deleteStudent(Integer id);
+
+
     
 }
