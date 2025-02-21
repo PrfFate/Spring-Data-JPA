@@ -2,7 +2,7 @@ package com.aliacar.controller.impl;
 
 
 import java.util.List;
-import java.util.jar.Attributes.Name;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aliacar.controller.IStudentController;
-import com.aliacar.entites.Student;
+import com.aliacar.dto.DtoStudent;
+import com.aliacar.dto.DtoStudentIU;
 import com.aliacar.services.IStudentService;
 
 @RestController
@@ -23,25 +24,25 @@ import com.aliacar.services.IStudentService;
 public class StudentControllerImpl implements IStudentController{
 
     @Autowired
-    private IStudentService studentService;
+    private IStudentService studentService; 
 
     //DTO kullanılır
     @PostMapping(path = "/save")
     @Override
-    public Student saveStudent(@RequestBody Student student) {
-        return studentService.saveStudent(student);
+    public DtoStudent saveStudent(@RequestBody DtoStudentIU dtoStudentIU) {
+        return studentService.saveStudent(dtoStudentIU);
     }
     
     @GetMapping(path = "/list")
     @Override
-    public List<Student> getAllStudents() {
+    public List<DtoStudent> getAllStudents() {
         return studentService.getAllStudents();
         
     }
 
     @GetMapping(path = "/list/{id}")
     @Override
-    public Student getStudentById(@PathVariable(name = "id")Integer id) {
+    public DtoStudent getStudentById(@PathVariable(name = "id")Integer id) {
         return studentService.getStudentById(id);
     }
 
@@ -54,8 +55,8 @@ public class StudentControllerImpl implements IStudentController{
 
     @PutMapping(path = "/update/{id}")
     @Override
-    public Student updateStudent(@PathVariable(name = "id")Integer id,@RequestBody Student updateStudent) {
-        return studentService.updateStudent(id,updateStudent);
+    public DtoStudent updateStudent(@PathVariable(name = "id")Integer id,@RequestBody DtoStudentIU dtoStudentIU) {
+        return studentService.updateStudent(id,dtoStudentIU);
         
     }
     

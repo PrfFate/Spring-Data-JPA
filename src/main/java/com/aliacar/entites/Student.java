@@ -1,5 +1,6 @@
 package com.aliacar.entites;
 
+
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -12,12 +13,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Entity
 @Table(name="student")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {

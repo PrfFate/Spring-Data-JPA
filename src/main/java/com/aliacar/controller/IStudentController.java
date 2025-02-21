@@ -2,19 +2,21 @@ package com.aliacar.controller;
 
 import java.util.List;
 
-import com.aliacar.entites.Student;
+import com.aliacar.dto.DtoStudent;
+import com.aliacar.dto.DtoStudentIU;
+
 
 public interface IStudentController {
 
-    public Student saveStudent(Student student);
+    public DtoStudent saveStudent(DtoStudentIU dtoStudentIU);
 
-    public List<Student> getAllStudents();
+    public List<DtoStudent> getAllStudents();
 
-    public Student getStudentById(Integer id);
+    public DtoStudent getStudentById(Integer id);
 
     public void deleteStudent(Integer id);
 
-    public Student updateStudent(Integer id,Student student);
+    public DtoStudent updateStudent(Integer id,DtoStudentIU DtoStudentIU);
 
 
     
