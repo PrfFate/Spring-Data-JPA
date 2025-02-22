@@ -19,6 +19,8 @@ import com.aliacar.dto.DtoStudent;
 import com.aliacar.dto.DtoStudentIU;
 import com.aliacar.services.IStudentService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/rest/api/student")
 public class StudentControllerImpl implements IStudentController{
@@ -29,7 +31,7 @@ public class StudentControllerImpl implements IStudentController{
     //DTO kullanılır
     @PostMapping(path = "/save")
     @Override
-    public DtoStudent saveStudent(@RequestBody DtoStudentIU dtoStudentIU) {
+    public DtoStudent saveStudent(@RequestBody @Valid DtoStudentIU dtoStudentIU) {
         return studentService.saveStudent(dtoStudentIU);
     }
     
