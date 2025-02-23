@@ -22,6 +22,7 @@ public class GlobalExceptionHandler {
         return list;
     }
 
+    @SuppressWarnings("rawtypes")
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public ResponseEntity<ApiError> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex){
         Map<String,List<String>>errorsMap=new HashMap<>();
